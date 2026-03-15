@@ -457,7 +457,7 @@ export default function NoPunkStage() {
       setError("");
 
       try {
-        const nextPixels = await getNoPunkPixels(tokenId);
+        const nextPixels = await getNoPunkPixels(tokenId!);
 
         if (cancelled) return;
 
