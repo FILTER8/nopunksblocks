@@ -1,207 +1,162 @@
-# YesPunks Filter Generator
+# NoPunks Blocks
 
-**Same data. New light.**
+**Same pixels. New motion.**
 
-This starter is a more creative builder template for the **YesPunks API**.
 
-Instead of only loading a random YesPunk, it turns the API into a **filter-based generator**. Builders can explore traits, select visual attributes, and generate matching YesPunks directly from the public data layer.
+This project turns the public
+API into an interactive **motion stage**. Builders can load NoPunks,
+animate them across multiple layout modes, zoom into the scene, and
+export full browser compositions as images.
 
-The project is designed as a lightweight creative interface built on top of:
+The project is designed as a lightweight creative interface built on top
+of:
 
-- the original CryptoPunks dataset
-- the YesPunks transformation layer
-- the public YesPunks API
 
----
+-   the NoPunks transformation layer
+-   the public NoPunks API
 
-# What This Starter Does
+------------------------------------------------------------------------
+
+# What This App Does
 
 This version includes:
 
-- shared YesPunks visual theme
-- YesPunks header and typography
-- random YesPunk loading
-- trait parsing from API metadata
-- trait-based filtering
-- filtered regeneration logic
-- client-side SVG rendering
-- PNG download support
+-   shared NoPunks visual theme
+-   full-screen motion stage
+-   random NoPunk loading
+-   direct token ID loading
+-   pixel parsing from API data
+-   multiple animated layout modes
+-   zoom and touch interaction
+-   client-side rendering
+-   full-browser PNG download support
 
-The result is a **creative generator UI** that builders can fork and adapt into their own project.
+The result is a **creative stage UI** that builders can fork and adapt
+into their own project.
 
----
+------------------------------------------------------------------------
 
 # How It Works
 
 The app loads:
 
-- pixel data from the YesPunks API
-- metadata and trait strings from the YesPunks API
+-   pixel data from the NoPunks API
+-   token-based image structure from the NoPunks dataset
 
-Traits are parsed from the metadata response and displayed as selectable filters.
+Each NoPunk is rendered locally as a set of pixel blocks.
 
-When one or more traits are selected, the generator searches for another YesPunk that matches all selected traits.
+Instead of displaying the artwork as a static image only, the stage maps
+those pixels into different visual compositions such as:
 
-If no filters are selected, the generator simply loads a random YesPunk.
+-   colorblock
+-   stardust
+-   tiles
+-   line
+-   gravity
+-   punk
 
----
+Builders can cycle between layouts, zoom the stage, and export the
+current browser composition as a PNG.
 
-# Install
-
-Clone the starter:
-
-```bash
-git clone https://github.com/yespunks/yespunks-starter
-cd yespunks-starter
-npm install
-npm run dev
-```
-
-Or generate a new project with the CLI:
-
-```bash
-npx create-yespunks-app my-project
-```
-
----
+------------------------------------------------------------------------
 
 # API
 
 Base URL:
 
-```
-https://api.yespunks.xyz
-```
+https://nopunks.xyz/api/
 
-This starter uses:
+The app uses the NoPunks API to load token pixel data.
 
-```
-/api/yespunks/:id
-/api/yespunks/:id/pixels
-```
+------------------------------------------------------------------------
 
-The metadata endpoint provides the **trait string**.
+# What The App Renders
 
-The pixels endpoint provides the **24x24 grid used to render the YesPunk locally as SVG**.
+The stage renders each NoPunk from raw pixel data instead of relying on
+pre-rendered image files.
 
----
+Each pixel is drawn as a positioned block in the browser. Those blocks
+are then animated into different layouts.
 
-# Example Responses
+This makes the project useful not only as a viewer, but also as a base
+for:
 
-## Metadata
+-   generative motion studies
+-   interactive gallery experiences
+-   remix tools
+-   collector interfaces
+-   export tools
+-   installation-style browser pieces
 
-```json
-{
-  "id": 3083,
-  "name": "YesPunks #3083",
-  "sourcePunkId": 3083,
-  "attributesText": "Male 1, Chinstrap, Cowboy Hat",
-  "pixelsUrl": "/api/yespunks/3083/pixels",
-  "svgUrl": "/api/yespunks/3083/svg",
-  "transform": {
-    "mode": "invert-non-skin",
-    "background": "#ffffff",
-    "blackTo": "#fbfbfb"
-  }
-}
-```
-
-## Pixel Grid
-
-```json
-{
-  "w": 24,
-  "h": 24,
-  "palette": ["#fbfbfb", "#12ab34"],
-  "idx": [-1, -1, 0, 1]
-}
-```
-
----
+------------------------------------------------------------------------
 
 # Features
 
 ## Random Generator
 
-Loads a random YesPunk from the public supply range.
+Loads a random NoPunk from the public supply range.
 
-## Trait Filtering
+## Manual Token Loading
 
-Traits are parsed from the current YesPunk metadata and displayed as clickable filters.
+Users can enter a token ID directly and load a specific NoPunk.
 
-## Match Search
+## Animated Layout Modes
 
-When traits are selected, the generator searches for another YesPunk that matches all selected filters.
+The project includes multiple display modes:
 
-## Local SVG Rendering
+-   Colorblock
+-   Stardust
+-   Tiles
+-   Line
+-   Gravity
+-   Punk
 
-The UI renders YesPunks from the pixel grid response instead of relying on pre-rendered image files.
+Each mode repositions the same pixel set in a different way.
+
+## Zoom Interaction
+
+Users can zoom with mouse wheel or touch gestures.
+
+## Local Pixel Rendering
+
+The UI renders NoPunks directly from API pixel data in the browser.
 
 ## PNG Export
 
-Users can download the currently rendered YesPunk as a PNG generated client-side.
+Users can download the full current browser composition as a PNG
+generated client-side.
 
----
 
-# Builder Notes
-
-This starter is intentionally simple and easy to extend.
-
-Good directions for further work:
-
-- save favorite filter combinations
-- add multi-step visual search
-- browse matching punks in a grid
-- compare original punk and YesPunk side by side
-- add wallet-based curation
-- create themed generators
-- build collector tools or art interfaces
-
----
-
-# Builder Rewards
-
-YesPunks supports ecosystem builders.
-
-Selected projects may receive **reserved YesPunks allocation from the game reserve**.
-
-Projects are evaluated based on:
-
-- originality
-- usefulness
-- technical execution
-- contribution to the ecosystem
-
-The stronger the project, the stronger the reward can be.
-
----
+------------------------------------------------------------------------
 
 # Project Structure
 
-```
-app/
-components/
-lib/
-```
+app/ components/ lib/
 
-Main logic lives in the **generator stage component**:
+Main logic lives in the stage component:
 
-- loads a random YesPunk
-- parses traits
-- filters future generations
-- renders the selected result
-- enables PNG download
+-   loads a random NoPunk
+-   loads a manual token by ID
+-   fetches pixel data
+-   maps pixels into animated layouts
+-   supports zoom interaction
+-   exports the current composition as PNG
 
----
-
+------------------------------------------------------------------------
 
 # Links
 
-Website  
-https://yespunks.xyz
+Website\
+https://nopunks.xyz
 
-API  
-https://api.yespunks.xyz
+API\
+https://nopunks.xyz/api/
 
-GitHub  
-https://github.com/yespunks
+Tool by\
+https://x.com/0xfilter8
+
+------------------------------------------------------------------------
+
+# License
+
+CC0
